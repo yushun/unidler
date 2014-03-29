@@ -1,0 +1,7 @@
+%h1 Site index
+
+=link_to 'new', new_site_path
+
+%ul
+  -@sites.each do |site|
+    %li="#{site.name}: #{site.address}"

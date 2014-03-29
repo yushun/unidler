@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: sites
+#
+#  id         :integer          not null, primary key
+#  address    :string(255)
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  address: MyString
+  name: MyString
+
+two:
+  address: MyString
+  name: MyString
