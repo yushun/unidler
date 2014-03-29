@@ -13,7 +13,7 @@ class SitesController < ApplicationController
 
   def create
     site = Site.create!(site_params)
-    redirect_to site
+    redirect_to sites_path, notice: "#{site.address} successfully added."
   end
 
   def edit 

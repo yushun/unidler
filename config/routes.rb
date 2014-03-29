@@ -1,4 +1,4 @@
 Unidler::Application.routes.draw do
   root 'sites#index'
-  resources :sites
+  resources :sites, only: [:index, :create]
 end

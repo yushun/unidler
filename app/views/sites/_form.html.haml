@@ -1,9 +1,8 @@
-=form_for site do |f|
-  %fieldset
-    =f.label :name
-    =f.text_field :name
-  %fieldset
-    =f.label :address
-    =f.text_field :address
-  %fieldset
-    =f.submit
+=form_for site, html: { class: 'form-horizontal', role: 'form' } do |f|
+  .form-group
+    =f.label :address, "Enter your site's url and it's that easy!", class: 'col-sm-2 control-label'
+    .col-sm-10
+      =f.text_field :address, class: 'form-control', placeholder: 'url'
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      =f.submit 'Un-idle Site!', class: 'btn btn-primary btn-lg btn-block'

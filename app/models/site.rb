@@ -12,4 +12,12 @@
 class Site < ActiveRecord::Base
   validates :name, presence: true
   validates :address, presence: true, uniqueness: true
+
+  before_validation :set_name
+
+  private
+
+  def set_name
+    self.name = self.address if self.name.blank?
+  end
 end
