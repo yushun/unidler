@@ -12,8 +12,13 @@ class SitesController < ApplicationController
   end
 
   def create
-    site = Site.create!(site_params)
-    redirect_to sites_path, notice: "#{site.address} successfully added."
+    site = Site.new(site_params)
+    if site.save
+      flash[:notice] = "#{site.address} successfully added."
+    else
+      flash[:alert] = "#{site.address} cannot be added, please check the url again."
+    end
+    redirect_to root_path
   end
 
   def edit 
@@ -23,7 +28,7 @@ class SitesController < ApplicationController
   def update
     site = Site.find params[:id]
     site.update!(site_params)
-    redirect_to site
+    redirect_to root_path
   end
 
   private

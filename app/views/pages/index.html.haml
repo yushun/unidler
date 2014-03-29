@@ -3,4 +3,4 @@
     %h1
       Welcome to Unidler
     %p When you are using services like Heroku, your site usually goes idle in a couple of minutes to conserve resources. The unfortunate outcome is that the site will take a long time to become un-idle. This is where unidler comes in, it prevents your site from becoming idle, for a fast and reliable experience for your customers.
-  =render 'form', site: Site.new 
+  =render 'sites/form', site: @site
