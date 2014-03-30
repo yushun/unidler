@@ -11,7 +11,7 @@
 
 class Site < ActiveRecord::Base
   validates :name, presence: true
-  validates :address, presence: true, uniqueness: true
+  validates :address, presence: true, uniqueness: { case_sensitive: false, message: 'The url has already been added. No need to add it twice.'}
   validate :address_is_an_url
   
   before_validation :set_name

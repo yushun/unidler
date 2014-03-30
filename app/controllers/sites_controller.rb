@@ -16,7 +16,8 @@ class SitesController < ApplicationController
     if site.save
       flash[:notice] = "#{site.address} successfully added."
     else
-      flash[:alert] = "#{site.address} cannot be added, please check the url again."
+      error = site.errors.full_messages.first || "#{site.address} cannot be added, please check the url again."
+      flash[:error] = error
     end
     redirect_to root_path
   end
