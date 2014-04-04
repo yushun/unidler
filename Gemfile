@@ -16,6 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 group :development, :test do
   gem 'annotate'
   gem 'debugger'
+  gem 'letter_opener'
   gem 'sqlite3'
 end
 
