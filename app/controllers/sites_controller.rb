@@ -14,7 +14,7 @@ class SitesController < ApplicationController
   def create
     site = Site.new(site_params)
     if site.save
-      SiteMailer.creation_notice(site.address)
+      SiteMailer.creation_notice(site.address).deliver
       flash[:notice] = "#{site.address} successfully added."
     else
       error = site.errors.full_messages.first || "#{site.address} cannot be added, please check the url again."
