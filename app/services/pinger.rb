@@ -19,8 +19,10 @@ class Pinger
     @sites.each do |site|
       begin
         Timeout.timeout(5) do
-          s = TCPSocket.new(site.address, 'echo')
+          s = TCPSocket.open(site.address, 80)
+          code = s.read
           s.close
+          p "#{site.address}: #{code}"
         end
       rescue => e
         p "Error #{site.address}: second wave #{e}"
