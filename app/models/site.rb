@@ -2,11 +2,12 @@
 #
 # Table name: sites
 #
-#  id         :integer          not null, primary key
-#  address    :string(255)
-#  name       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id              :integer          not null, primary key
+#  address         :string(255)
+#  name            :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#  failure_counter :integer          default("0"), not null
 #
 
 class Site < ActiveRecord::Base
@@ -15,6 +16,10 @@ class Site < ActiveRecord::Base
   validate :address_is_an_url
   
   before_validation :set_name
+
+  def increase_failure_counter
+    self.failure_counter += 1
+  end
 
   private
 

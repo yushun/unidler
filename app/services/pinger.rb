@@ -4,11 +4,13 @@ class Pinger
   end
 
   def start
-    @sites.each do |site|
+    @sites.find_each do |site|
       begin
         http = Net::HTTP.new(site.address, 80)
         response = http.request_get('/')
         p "#{site.address}: #{response.code}"
+        site.increase_failure_counter
+        site.save
       rescue => e
         p "Error #{site.address}: #{e}"
       end  

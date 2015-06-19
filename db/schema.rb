@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140329185706) do
+ActiveRecord::Schema.define(version: 20150619021445) do
 
-  create_table "sites", force: true do |t|
-    t.string   "address"
-    t.string   "name"
+  create_table "sites", force: :cascade do |t|
+    t.string   "address",         limit: 255
+    t.string   "name",            limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "failure_counter",             default: 0, null: false
   end
 
 end

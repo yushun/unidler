@@ -2,11 +2,12 @@
 #
 # Table name: sites
 #
-#  id         :integer          not null, primary key
-#  address    :string(255)
-#  name       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id              :integer          not null, primary key
+#  address         :string(255)
+#  name            :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#  failure_counter :integer          default("0"), not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
