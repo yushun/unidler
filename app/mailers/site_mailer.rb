@@ -11,4 +11,5 @@ class SiteMailer < ActionMailer::Base
     @addresses = addresses
    
     mail to: "sonnyhe2002+unidler@gmail.com", subject: "Some email have been deleted"
+  end
 end
