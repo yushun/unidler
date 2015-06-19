@@ -17,8 +17,18 @@ class Site < ActiveRecord::Base
   
   before_validation :set_name
 
+  FAILURE_THRESHOLD = 100
+
   def increase_failure_counter
     self.failure_counter += 1
+  end
+
+  def self.failures
+    where("failure_counter > ?", FAILURE_THRESHOLD)
+  end
+
+  def self.reset_counters
+    update_all(failure_counter: 0)
   end
 
   private
