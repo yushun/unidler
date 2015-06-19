@@ -6,4 +6,9 @@ class SiteMailer < ActionMailer::Base
 
     mail to: "sonnyhe2002+unidler@gmail.com", subject: "#{@address} is added to Unidler"
   end
+
+  def deletion_notice(addresses)
+    @addresses = addresses
+   
+    mail to: "sonnyhe2002+unidler@gmail.com", subject: "Some email have been deleted"
 end

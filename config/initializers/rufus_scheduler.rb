@@ -8,7 +8,11 @@ end
 
 scheduler.every('14d') do
   p "Cleaning sites"
-  Site.failures.destroy_all
+  failures = Site.failures
+  addresses = failures.addresses.to_sentence
+  failures.destroy_all
+
+  SiteMailer.creation_notice(addresses).deliver
   Site.reset_counters
   p "Cleaning finish"
 end

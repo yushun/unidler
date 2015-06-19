@@ -27,6 +27,10 @@ class Site < ActiveRecord::Base
     where("failure_counter > ?", FAILURE_THRESHOLD)
   end
 
+  def self.addresses
+    pluck(:address)
+  end
+
   def self.reset_counters
     update_all(failure_counter: 0)
   end
